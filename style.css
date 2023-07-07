@@ -17,7 +17,6 @@ body{
     margin-right: 10px;
 }
 .logo {
-    position: absolute;
     top: 7px;
     left: 47.5%;
 }
@@ -26,7 +25,7 @@ body{
     max-height: 550px;
     height: 100%;
     width: 100%;
-    position:static;
+    
     align-self: center;
 }
 .header-start {
@@ -70,3 +69,32 @@ body{
     width: fit-content;
     block-size: auto;
 }
+
+.dropdown-menu p{
+    border-radius: 5%;
+    border: 1px solid rgb(247, 211, 11);
+    padding: 3px;
+    justify-content: center;
+    box-shadow: 3px 3px 5px black;
+    margin: auto;
+    margin-left: 0;
+}
+.dropdown-menu p:hover{
+    background-color: rgb(5, 5, 20);
+    text-shadow: 0.1em 0.1em 0.2em white;
+}
+.dropdown-menu{
+    display:block;
+    position: absolute;
+    max-width: 200px;
+    width: 45%;
+    height: 100%;
+    background-color: rgb(5, 4, 70);
+    padding-right: 10px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    box-shadow: 3px 3px 5px black;
+    font-family:Arial; 
+}
+
+
