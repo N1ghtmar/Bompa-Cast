@@ -8,11 +8,12 @@ body{
     background-image: url("./assets/bg.png");
 }
 .header {
-    width: auto;
+    width: 100%;
     height: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-right: 10px;
 }
 .logo {
     position: absolute;
@@ -24,6 +25,7 @@ body{
     max-height: 550px;
     height: auto;
     width: auto;
+    display: block;
 }
 .header-start {
     display: flex;
@@ -38,7 +40,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: end;
-    width: 50%;
+    width: 100%;
 }
 .header-end a {
     padding: 10px;
@@ -46,7 +48,7 @@ body{
 
 /* barra que separa o cabeçalho do conteúdo */
 .bar {
-    width: auto;
+    width: 100%;
     height: 5px;
     background-color: rgb(247, 211, 11);
     padding: 0px;
@@ -59,10 +61,11 @@ body{
     align-items: center;
 }
 .text-container {
-    height: 100vh;
+    margin-left: 10%;
     width: 550px;
 }
 .text-container p {
     width: fit-content;
     block-size: auto;
 }
+
