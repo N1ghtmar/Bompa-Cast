@@ -6,6 +6,7 @@ body{
     background-color: rgb(5, 4, 35);
     color: rgb(247, 211, 11);
     background-image: url("./assets/bg.png");
+    overflow: hidden;
 }
 .header {
     width: 100%;
@@ -23,9 +24,10 @@ body{
 .capa{
     max-width: 550px;
     max-height: 550px;
-    height: auto;
-    width: auto;
-    display: block;
+    height: 100%;
+    width: 100%;
+    position:static;
+    align-self: center;
 }
 .header-start {
     display: flex;
