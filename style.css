@@ -57,6 +57,7 @@ body{
 .text-container {
     margin-left: 10%;
     width: 550px;
+    margin-bottom: 1000px;
 }
 .text-container p {
     width: fit-content;
@@ -104,3 +105,4 @@ body{
     width: 100%;
     padding-bottom: 500px;
 }
+
