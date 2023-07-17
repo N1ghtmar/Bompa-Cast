@@ -1,67 +1,109 @@
-<html><head></head><body cz-shortcut-listen="true"><header>
-    <title>BompaCast - E.E.B. Bom Pastor, Chapecó/SC</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
+    <head>
+<link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+<script defer src="https://pyscript.net/latest/pyscript.js"></script>
+        <style>
+            #entrada{
+                justify-content: center;
+                display: block;
+                margin: auto;
+                box-shadow: 1px 1px 10px gray;
+                border: none;
+                padding-bottom: 5px;
+                padding-top: 5px;
+                text-align: center;
+            }
+            #cod{
+                justify-content: center;
+                margin-top: 40vh;
+                text-align: center;
+            }
+            #confirm{
+                justify-content: center;
+                margin: auto;
+                margin-top: 10px;
+                display: block;
+                text-align: center;
+            }
+        </style>
+    </head>
 
-    <link rel="stylesheet" href="style.css">
-</header>
-
-
-    <div class="header">
-
-
-        <!-- elementos de identificação -->
-        <div class="header-start">
-            <img name="btn1" src="./assets/menu-icon.png" width="36" height="25">
-            
-        </div>  
-
-        <!-- elementos de redirecionamento para as páginas do bompacast -->
-        <div class="header-end">
-            <a href="https://open.spotify.com/intl-pt" target="_blank">
-                <img src="./assets/spotify icon.png" width="20" height="20">
-            </a>
-
-            <a href="https://www.youtube.com/" target="_blank">
-                <img src="./assets/youtube icon.png" width="28" height="20">
-            </a>
-
-            <a href="https://twitter.com/" target="_blank">
-                <img src="./assets/twitter logo.png" width="24" height="20">
-            </a>
-        </div>
-
-    </div>
-    <div class="bar"></div>
-    <div class="sidebar">
-        <div class="dropdown-menu">
-            <p name="home"><b>HOME</b></p>
-            <p name="sobre"><b>SOBRE</b></p>
-            <p name="integrantes"><b>INTEGRANTES</b></p>
-            <p name="contato"><b>CONTATO</b></p>
-        </div>
-    </div>
-    <a id="capa">
-        <img src="./assets/icon-logo-t.png" class="capa" >
-    </a>
+<body>
+    <title>procure por ele</title>
+    <b><p id="cod">!7_HF}6 \</p></b>
     <div class="content">
-        
-        <div class="text-container" id="sobre_text">
-            <h1>SONHAMOS COM O FUTURO</h1>
-            <h2>Sobre nós...</h2>
-            <p>Somos um grupo de estudantes do ensino médio colocando em prática nosso podcast de divulgação cientifica, com convidados e vários assuntos inerentes para se ouvir</p>
-        </div>
-        <div class="text-container" id="int_text">
-            <h1>INTEGRANTES</h1>
-            <p>Somos um grupo de 7 alunos: Wagner, Bruno, Enzo, Martin, Samuel, Arthur e Pedro. Ainda temos apoio de alguns professores e ajuda da escola, editamos, filmamos e gravamos, fizemos este site e sonhamos com o futuro que talvez não seja tão distante, para trazer boas memórias e ótimos frutos</p>
-        </div>
-        <div class="text-container" id="contato_text">
-            <h1>CONTATO</h1>
-            <h2>Nós chame em qualquer rede social</h2>
-            <p>E-mail: bompacast@gmail.com</p>
-        </div>
-
-        
+        <input id="entrada" size="25" placeholder="password" maxlength=20></input>
+        <button id="confirm"">ENTER</button>
     </div>
-    <script src="script.js"></script>
-</body></html>
+</body>
+<py-script>
+    from pyscript import Element
+    import string
+    import random
+    from time import sleep
+    v = string.printable
+    letters = []
+    for i in range(len(v)-5):
+        letters.append(v[i])
+    
+    paragraph = Element("cod")
+    content = paragraph.innerHtml
+    LOWKEY = 31
+
+    def cripto():
+        text = Element("entrada").value
+        random.seed(text)
+        random.shuffle(letters)
+        cod = []
+        for i in range(len(content)):
+            for j in range(len(letters)):
+                if content[i] == letters[j]:
+                    cod.append(j)
+        criptado=""
+        for i in range(len(cod)):
+            cod[i]+=LOWKEY+i 
+            while cod[i] > len(letters)-1:
+                cod[i]-=len(letters)
+            criptado+=letters[cod[i]]
+        return criptado
+
+    def decripto():
+        text = Element("entrada").value
+        random.seed(text)
+        random.shuffle(letters)
+        cod = []
+        for i in range(len(content)):
+            for j in range(len(letters)):
+                if content[i] == letters[j]:
+                    cod.append(j)
+        criptado=""
+        for i in range(len(cod)):
+            cod[i]-=LOWKEY+i
+            while cod[i] < 0:
+                cod[i]+=len(letters)
+            criptado+=letters[cod[i]]
+        return criptado
+            
+</py-script>
+<script>
+    var texto="";
+    btn = document.getElementById("confirm");
+    const sleep = (milliseconds) => {
+    return new Promise(resolve => setTimeout(resolve, milliseconds))
+    }
+ 
+    // chamando a função sleep com pausa de 2 segundos
+    const pausa = async () => {
+        await sleep(100)
+    }
+ 
+
+    btn.addEventListener("click",function(event){
+        decod_js = pyscript.interpreter.globals.get('decripto');
+        texto = decod_js();
+        console.log(texto);
+        document.getElementById("cod").innerHTML = texto;
+    },false);
+
+</script>
+</html>
