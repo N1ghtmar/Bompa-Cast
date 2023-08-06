@@ -1,0 +1,10 @@
+* {
+    margin: 0px;
+    font-family:sans-serif;
+    text-size-adjust: auto;
+}
+.wrapper {
+    display: flex;
+    width: auto;
+    height: auto;
+}
