@@ -1,0 +1,71 @@
+#solar-menu{
+    position: absolute;
+}
+#sun{
+    display: flex;
+    height: 15vh;
+    width: 15vh;
+    border-radius: 50%;
+    background-color: rgb(255, 197, 6);
+    justify-content: center;
+    align-items: center;
+    margin-top: -70px;
+    box-shadow: 0 0 3em white;
+}
+#earth{
+    display:flex;
+    height: 25vh;
+    width: 25vh;
+    margin-top: -122px;
+    margin-left: -30px;
+}
+#mars{
+    display:flex;
+    height: 35vh;
+    width: 35vh;
+    margin-top: -180px;
+    margin-left: -60px;
+}
+#earth::before{
+    content: '';
+    height: 2vh;
+    width: 2vh;
+    background-image: linear-gradient(rgb(2, 50, 206),rgb(110, 101, 236));
+    border-radius: 50%;
+}
+#mars::before{
+    content: '';
+    height: 2vh;
+    width: 2vh;
+    margin-left: 28vh;
+    background-image: linear-gradient(rgb(240, 43, 43),rgb(248, 88, 59));
+    border-radius: 50%;
+}
+#moon{
+    display: flex;
+    height: 7vh;
+    width: 7vh;
+    margin-left: -35px;
+    margin-top: -23px;
+}
+#moon::before{
+    content: '';
+    height: 1vh;
+    width: 1vh;
+    background-color: rgb(150, 150, 150);
+    border-radius: 50%;
+}
+
+[data-animation="orbit_earth"]{
+    animation: orbit 5s linear infinite;
+}
+[data-animation="orbit_moon"]{
+    animation: orbit 10s linear infinite;
+}
+[data-animation="orbit_mars"]{
+    animation: orbit 12s linear infinite;
+}
+
+@keyframes orbit{
+    to {transform:rotate(360deg);}
+}
